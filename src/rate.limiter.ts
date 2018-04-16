@@ -37,7 +37,7 @@ export class RateLimiter {
 
     private cyclicReset() {
         this.store.resetAll();
-        this.timeoutId = setTimeout(this.cyclicReset, this.options.timeWindow);
+        this.timeoutId = setTimeout(() => this.cyclicReset(), this.options.timeWindow);
     }
 
     start() {
@@ -67,7 +67,7 @@ export class RateLimiter {
         }
         const key = this.options.keyMapper(req);
         const calls = this.store.increment(key);
-        if (calls >= this.options.requestsLimit){
+        if (calls > this.options.requestsLimit){
             return false;
         }
         return true;
