@@ -1,6 +1,6 @@
 {
   "name": "@mgiamberardino/rate-limiter",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "A Rate Limiter wrote in Typescript for NodeJS",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

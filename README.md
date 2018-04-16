@@ -6,13 +6,14 @@ Typescript Rate Limiter implementation. This implementation allows you to define
 
 ## Installation
 
-`npm install --save @mgiamberardino/node-rate-limiter`
+`npm install --save @mgiamberardino/rate-limiter`
 
 ## How to use it?
 
 ES6:
 ```
-import RateLimiter from '@mgiamberardino/node-rate-limiter';
+import { RateLimiter } from '@mgiamberardino/rate-limiter';
+//const { RateLimiter } = require('@mgiamberardino/rate-limiter');
 
 const limiter = new RateLimiter({ options });
 limiter.start();
@@ -29,10 +30,50 @@ expressApp.use((req, res, next) => {
 
 ## Options
 
+Using typescript you have an interface for the optiones:
+```
+import { RateLimiter, RateLimiterOptions } from '@mgiamberardino/rate-limiter';
+
+const options:RateLimiterOptions = {
+    keyMapper: ...,
+    requestLimit: ...,
+    timeWindow:...,
+};
+const limiter = new RateLimiter(options);
+limiter.start();
+...
+```
+
 ### Request Limit
 
+```
+... = {
+    ...
+    requestLimit: 250, // The number of calls allowed for the same key previous to start blocking.
+    ...
+}
+```
 ### Key Mapper
-
+```
+... = {
+    ...
+    keyMapper: (req) => req.session.user, // A function to determine an identifier for the request.
+    ...
+}
+```
 ### Time Window
-
+```
+... = {
+    ...
+    timeWindow: 1000, // The time window in milliseconds in which the requests will be analyzed.
+    ...
+}
+```
 ### Skip Function
+```
+... = {
+    ...
+    skipFunction: (req) => !req.session.user, // A function to determine if a request should be ignored by the rate limiter.
+    ...
+}
+```
