@@ -16,7 +16,7 @@ export interface RateLimiterOptions {
     store?: RateLimiterStoreAdapter;
 }
 
-class RateLimiter {
+export class RateLimiter {
     public static readonly DEFAULT_REQUESTS_LIMIT = 100;
     public static readonly DEFAULT_TIME_WINDOW = 1000;
     public static readonly DEFAULT_OPTIONS = {

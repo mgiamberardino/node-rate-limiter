@@ -1,4 +1,4 @@
-import RateLimiter, { RateLimiterOptions, KeyMapper } from './index';
+import { RateLimiter, RateLimiterOptions, KeyMapper } from './index';
 const expect = require('expect.js');
 
 describe('Rate Limiter', () => {
