@@ -1,7 +1,11 @@
 {
   "name": "@mgiamberardino/rate-limiter",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A Rate Limiter wrote in Typescript for NodeJS",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mgiamberardino/node-rate-limiter.git"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
